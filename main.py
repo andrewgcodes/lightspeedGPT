@@ -79,7 +79,7 @@ def call_openai_api(chunk, model, max_tokens, temperature, prompt):
     return None  # Return None for failure
 
 # Function to split a text into chunks
-def split_into_chunks(text, model, tokens=500):
+def split_into_chunks(text, model, tokens=1000):
     encoding = tiktoken.encoding_for_model(model) 
     words = encoding.encode(text)  # Encode the text into tokens
     chunks = []  # Initialize the chunks list
@@ -118,9 +118,9 @@ if __name__ == "__main__":
     parser.add_argument('-o', '--output', required=True, help='Output file path')
     parser.add_argument('-l', '--log', required=True, help='Log file path')
     parser.add_argument('-m', '--model', default='gpt-3.5-turbo-0301', help='OpenAI model to use') # Can also use gpt-4-0314
-    parser.add_argument('-c', '--chunksize', type=int, default=500, help='Maximum tokens per chunk') # This shouldn't be too large (>4000) or OpenAI will be overloaded. A safe size is under 3000 tokens. Your prompt length also counts for the OpenAI token limit.
-    parser.add_argument('-t', '--tokens', type=int, default=200, help='Maximum tokens per API call') # shorter will be faster. but could terminate too early.
-    parser.add_argument('-v', '--temperature', type=float, default=0.5, help='Variability (temperature) for OpenAI model') # 0.0 is probably best if you are going for highest accuracy
+    parser.add_argument('-c', '--chunksize', type=int, default=1000, help='Maximum tokens per chunk') # This shouldn't be too large (>4000) or OpenAI will be overloaded. A safe size is under 3000 tokens. Your prompt length also counts for the OpenAI token limit.
+    parser.add_argument('-t', '--tokens', type=int, default=100, help='Maximum tokens per API call') # shorter will be faster. but could terminate too early.
+    parser.add_argument('-v', '--temperature', type=float, default=0.0, help='Variability (temperature) for OpenAI model') # 0.0 is probably best if you are going for highest accuracy
     parser.add_argument('-p', '--prompt', required=True, help='Prompt') # Instructions for GPT. This counts into the 4k token limit.
 
     args = parser.parse_args()  # Parse the command line arguments
