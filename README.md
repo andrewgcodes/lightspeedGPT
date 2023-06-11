@@ -11,6 +11,14 @@ It is designed to handle large files that may exceed OpenAI's token limits if pr
 If the OpenAI rate limit is reached, the code uses exponential backoff with jitter to keep retrying until success. It is by default set to give up after three failures.
 
 ![image](https://cloud-ojq43hax6-hack-club-bot.vercel.app/0screen_shot_2023-06-11_at_8.44.36_pm.png)
+
+Usage: 
+```bash
+python main.py -i INPUT_FILE -o OUTPUT_FILE -l LOG_FILE -m MODEL -c CHUNKSIZE -t TOKENS -v TEMPERATURE -p PROMPT
+```
+
+Skip to bottom for usage instructions.
+
 ## Installation
 
 ### Prerequisites
