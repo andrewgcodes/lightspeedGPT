@@ -56,8 +56,8 @@ Where:
 - `OUTPUT_FILE` is the path to the output file. This argument is required.
 - `LOG_FILE` is the path to the log file. This argument is required.
 - `MODEL` is the OpenAI model to use (default is 'gpt-3.5-turbo-0301'). Alternative: gpt-4-0314. Better quality but slower and more expensive. 
-- `CHUNKSIZE` is the maximum number of tokens per chunk (default is 500). This shouldn't be too large (>4000) or OpenAI will be overloaded. A safe size is under 3000 tokens. Your prompt length also counts for the OpenAI token limit.
-- `TOKENS` is the maximum tokens per API call (default is 200). shorter will be faster. but could terminate too early.
+- `CHUNKSIZE` is the maximum number of tokens per chunk (default is 1000). This shouldn't be too large (>4000) or OpenAI will be overloaded. A safe size is under 3000 tokens. Your prompt length also counts for the OpenAI token limit.
+- `TOKENS` is the maximum tokens per API call (default is 100). shorter will be faster. but could terminate too early.
 - `TEMPERATURE` is the variability (temperature) for OpenAI model (default is 0.0). 0.0 is probably best if you are going for highest accuracy
 - `PROMPT` is the prompt for the OpenAI model. This argument is required. Counts towards the 4k token limit for OpenAI API calls.
 
