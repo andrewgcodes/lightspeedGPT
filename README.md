@@ -1,6 +1,11 @@
 # multithreadGPT
 Use GPT4 and GPT3.5 on inputs of unlimited size. Uses multithreading to process multiple chunks in parallel. Useful for tasks like Named Entity Recognition, information extraction on large books, datasets, etc.
 
+Use cases:
+- Translating a large body of text
+- Extracting geographic entities from a book on the history of wars
+- Summarizing a long article, textbook, or other file bit by bit.
+
 It is designed to handle large files that may exceed OpenAI's token limits if processed as a whole. The script splits the input file into manageable pieces and sends each chunk to the OpenAI API separately at the same time. The responses are then collected and saved into an output file.
 
 If the OpenAI rate limit is reached, the code uses exponential backoff with jitter to keep retrying until success. It is by default set to give up after three failures.
