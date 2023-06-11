@@ -104,10 +104,10 @@ def process_chunks(input_file, output_file, log_file, model, chunksize, max_toke
         for future in tqdm(as_completed(futures), total=len(futures), desc="Processing chunks"):
             response = future.result()  # Get the result from the future
             if response is None:  # If the API call failed
-                log_to_file(log_file, f"Failed to process chunk {future}")
+                log_to_file(log_file, f"Failed to process chunk {futures[future]}")
             else:
                 responses.append(response)  # Add the response to the responses list
-                log_to_file(log_file, f"Successfully processed chunk {future}")
+                log_to_file(log_file, f"Successfully processed chunk!")
                     
     save_to_file(responses, output_file)  # Save the responses to a file
 
