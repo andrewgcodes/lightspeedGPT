@@ -32,9 +32,9 @@ cd openai-text-processor
 3. Install the required packages.
 
 ```bash
-openai==0.27.0
-tiktoken==0.0.5
-tqdm==4.61.1
+openai
+tiktoken
+tqdm
 ```
 
 4. The script requires an OpenAI API key, which should be set as an environment variable. You can do this in bash by running the following command:
